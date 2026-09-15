@@ -1,0 +1,108 @@
+{
+  "name": "Demo_Books_To_Scrape",
+  "description": "Proyecto de demostración listo para ejecutar en books.toscrape.com",
+  "start_urls": [
+    "https://books.toscrape.com/"
+  ],
+  "selectors": [
+    {
+      "name": "titulo",
+      "selector": "h3 a",
+      "selector_type": "css",
+      "attribute": "title",
+      "regex": null,
+      "default_value": "",
+      "is_multiple": false,
+      "required": true,
+      "id": "sel_001"
+    },
+    {
+      "name": "precio",
+      "selector": "p.price_color",
+      "selector_type": "css",
+      "attribute": "text",
+      "regex": null,
+      "default_value": "",
+      "is_multiple": false,
+      "required": false,
+      "id": "sel_002"
+    },
+    {
+      "name": "disponibilidad",
+      "selector": "p.instock.availability",
+      "selector_type": "css",
+      "attribute": "text",
+      "regex": null,
+      "default_value": "",
+      "is_multiple": false,
+      "required": false,
+      "id": "sel_003"
+    },
+    {
+      "name": "enlace",
+      "selector": "h3 a",
+      "selector_type": "css",
+      "attribute": "href",
+      "regex": null,
+      "default_value": "",
+      "is_multiple": false,
+      "required": false,
+      "id": "sel_004"
+    },
+    {
+      "name": "imagen",
+      "selector": ".image_container img",
+      "selector_type": "css",
+      "attribute": "src",
+      "regex": null,
+      "default_value": "",
+      "is_multiple": false,
+      "required": false,
+      "id": "sel_005"
+    }
+  ],
+  "dynamic": {
+    "use_javascript": false,
+    "headless": true,
+    "scroll_infinite": false,
+    "max_scrolls": 5,
+    "scroll_delay_sec": 1.0,
+    "wait_selector": null,
+    "wait_timeout_sec": 10.0,
+    "load_more_selector": null,
+    "load_more_clicks": 3
+  },
+  "pagination": {
+    "enabled": true,
+    "pagination_type": "next_button",
+    "next_selector": "li.next a",
+    "pattern_template": "",
+    "start_page": 1,
+    "max_pages": 2
+  },
+  "processor": {
+    "deduplicate": true,
+    "deduplicate_by": "",
+    "trim_spaces": true,
+    "normalize_prices": true,
+    "convert_dates": false,
+    "validate_urls": true,
+    "drop_incomplete": false,
+    "required_fields": []
+  },
+  "settings": {
+    "concurrency": 2,
+    "delay_between_requests": 0.5,
+    "timeout_sec": 15.0,
+    "max_retries": 3,
+    "max_records": 100,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "headers": {},
+    "cookies": {}
+  },
+  "export": {
+    "format": "csv",
+    "output_path": "projects/demo_ecommerce/results/demo_books.csv",
+    "table_name": "libros"
+  }
+}
